@@ -1,0 +1,53 @@
+.errorExplanation {
+	background: #fcfcfc;
+	border: 2px solid #e7e7e7;
+	font-size: 1.2em;
+	padding: 10px 2%;
+	width: 95%;
+	text-align: left;
+	margin-bottom: 25px;
+}
+
+
+.errorExplanation.failure, #errorExplanation.errorExplanation {
+	background:#D81E2D;
+	border:3px solid #A0121E;
+	color:#fff;
+	float: none;
+}
+.errorExplanation.success {
+	background:#EBFFD3;
+	border:1px solid #D0F8A0;
+	color:#82AE4D;
+	font-size:1.5em;
+}
+.errorExplanation.success * {
+	color:#82AE4D;
+}
+#errorExplanation.errorExplanation * {
+		color: #fff;
+}
+.errorExplanation h2 {
+	font-size:2em;
+	font-weight:normal;
+	margin-top:5px;
+}
+.errorExplanation ul {
+	padding: 0 0 0 20px;
+	list-style: disc outside;
+}
+.errorExplanation ul li {
+	padding: 5px 0 0 5px;
+	background: transparent;
+}
+div.fieldWithErrors {
+	display:inline;
+	float:none;
+}
+div.fieldWithErrors  * {
+	border:none;
+}
+.required {
+	color: #bf290b;
+	padding: 0 1.5em 0 .5em;
+}

@@ -1,0 +1,23 @@
+a.main_link {
+  display: block;
+  height: 100%;
+  left:0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+  opacity: 0;
+  filter: alpha(opacity=00);
+}
+
+.disabled {
+  opacity: .2 !important;
+  filter: alpha(opacity=20) !important;
+}
+
+div.overlay {
+  background-color: #000;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  z-index: -1;
+}

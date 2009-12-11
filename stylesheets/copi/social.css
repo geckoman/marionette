@@ -1,0 +1,81 @@
+/* ------------------------- social media link bar ----------------
+  this social link bar has a coresponding javascript file that adds the correct
+  posts to the links.. Images are done with background images rather then
+  regular images so it's easier to switch between social link bar styels.
+*/
+.socials h6 {
+  float: left;
+  height: 25px;
+  line-height: 25px;
+  margin: 0 0 10px 0;
+  font-style: normal;
+}
+.socials ul {
+  background: transparent url() no-repeat center left;
+  margin: 0 0 10px 0;
+  padding: 0 10px;
+  float: left;
+}
+.socials ul li {
+  background: transparent url('');
+  float: left;
+  list-style-image: none;
+  list-style-type: none;
+  margin: 0 4px 0 0;
+  padding: 1px;
+  width: auto;
+}
+.socials ul li a {
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 25px;
+  width: 25px;
+  text-indent:-9000px;
+  display: block;
+  float: left;
+  margin: 0;
+}
+.socials ul li a:hover {
+  filter: alpha(opacity=50); 
+  opacity: 0.5;
+}
+.socials .delicious a {
+  background-image: url('/images/social/delicious.png')
+}
+.socials .this_next a {
+  background-image: url('/images/social/thisnext.png')
+}
+.socials .kaboodle a {
+  background-image: url('/images/social/kaboodle.png')
+}
+.socials .stumbleupon a {
+  background-image: url('/images/social/stumbleupon.png')
+}
+.socials .reddit a {
+  background-image: url('/images/social/reddit.png')
+}
+.socials .yahoo a {
+  background-image: url('/images/social/yahoo.png')
+}
+.socials .google a {
+  background-image: url('/images/social/google.png')
+}
+.socials .facebook a {
+  background-image: url('/images/social/facebook.png')
+}
+.socials .technorati a {
+  background-image: url('/images/social/technorati.png')
+}
+.socials .myspace a {
+  background-image: url('/images/social/myspace.png')
+}
+.socials .twitter a {
+  background-image: url('/images/social/twitter.png')
+}
+.socials .digg a {
+  background-image: url('/images/social/digg.png')
+}
+.socials .kirtsy a {
+  background-image: url('/images/social/kirtsy.png')
+}

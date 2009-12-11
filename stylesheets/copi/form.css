@@ -1,0 +1,75 @@
+label, input, button, textarea, legend, select, option, .btn {
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  z-index: 0;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  vertical-align: top;
+  white-space: normal;
+}
+label {
+  font-size: 1.2em;
+  display: block;
+  float: left;
+  padding: .3em;
+}
+ input, textarea, select, a.btn {
+  padding: .3em;
+  border: 1px solid #e7e7e7;
+  background: #fff url('') repeat;
+  font-size: 1.2em;
+  float: left;
+}
+select {
+  padding-right:0.25em;
+  line-height: 1.3em !important;
+}
+textarea {
+  line-height: 1.7em;
+  display: block;
+  float: left;
+}
+option {
+  line-height: 1.7em;
+  padding-right: 1em;
+}
+input[type=text] {
+  line-height: 1.3em;
+  padding-right: 1em;
+  display: block;
+  float: left;
+}
+input[type=radio] {
+  margin: .5em 1em !important;
+  border: none !important;
+  padding: 0 !important;
+}
+input[type=checkbox] {
+  border: none !important;
+  padding: 0 !important;
+  position:relative;
+  top: .5em;
+}
+input[type=submit],  input[type=button], a.btn {
+  padding: .3em .7em;
+  cursor: pointer;
+  background: transparent url('') repeat-x scroll 0 50%;
+  text-align: center;
+  display: block;
+  float: left;
+}
+input[type=hidden] {
+  display: none !important;
+  visibility: hidden !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  line-height: 0px !important;
+  border: 0px !important;
+}
+a.btn {
+  line-height:1.35em;
+  display: block;
+  float: left;
+}

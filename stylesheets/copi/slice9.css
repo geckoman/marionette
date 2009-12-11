@@ -1,0 +1,48 @@
+/*
+.slice9 .t_.l_.border_
+.slice9 .t_.border_
+.slice9 .t_.r_.border_
+.slice9 .l_.border_
+.slice9 .c_
+.slice9 .r_.border_
+.slice9 .b_.l_.border_
+.slice9 .b_.border_
+.slice9 .b_.r_.border_
+ */
+ 
+.slice9 {
+	position: absolute;
+	overflow: visible !important;
+}
+.slice9 .border_ {
+	height: 100%;
+	width: 100%;
+}
+.slice9 .r_.border_  {
+	float: right;
+}
+.slice9 .l_.border_  {
+	clear: both;
+}
+.slice9 .c_ {
+	width: 100%;
+	height: 100%;
+}
+
+.navi_hover .r_.border_  {
+	margin-right: 0px;
+	width: 0px;
+}
+.navi_hover .l_.border_  {
+	margin-left: 0px;
+	width: 0px;
+}
+.navi_hover .t_.border_  {
+	margin-bottom: 0px;
+	height: 0px;
+}
+.navi_hover .b_.border_  {
+	margin-bottom: 0px;
+	height: 0px;
+}
+
