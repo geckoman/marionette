@@ -235,6 +235,8 @@ function External_link(element) {
   */
 /* --------------------------------------------------------- */
 function Sketch() {
+  var self = this;
+  
   this.draw = function(element, animate_object, callback_function, animation_durration, animation_ease) {
     switch (arguments.length) {
       case 0 :
@@ -242,9 +244,8 @@ function Sketch() {
       case 1 :
         animate_object = {opacity: 0};
       case 2 :
-        if (animate_object.opacity != 0) {
-          callback_function = new Function();
-        } else {
+        callback_function = new Function();
+        if (animate_object.opacity == 0) {
           callback_function = function() {element.hide().remove();}
         }
       case 3 :
@@ -252,18 +253,24 @@ function Sketch() {
       case 4:
         animation_ease = 'easeOutQuart';
       default :
-        if (element.length < 1) { return false; }
+        if (element.length < 1) {return false;}
         break;
     }
-    element.animate( animate_object , {
-      duration: animation_durration * 1000, 
-      easing: animation_ease,
-      queue: false,
-      complete: callback_function
-    });
     
+    function drawer(anim_obj, callback) {
+      element.animate(anim_obj , {
+        duration: animation_durration * 1000, 
+        easing: animation_ease,
+        queue: false,
+        complete: callback
+      });
+    }
+    
+    drawer(animate_object, callback_function);
+        
     return element;
   }
+  
   return this;
 }
 /* ------------------------- cLone ----------------------------
@@ -276,9 +283,8 @@ function Sketch() {
   *  @event cLone{event type}: function: discirption of what the event does, and when or why it is called
   */
 /* --------------------------------------------------------- */
-function Overlay(element) {
+function Overlay(element, full_screen) {
   var self = this;
-  this.wind = $(window);
   this.jax_space = element;
   this.jax_space.append('<div class="overlay"></div>')
   this.overlay = this.jax_space.children(':last');
@@ -294,9 +300,13 @@ function Overlay(element) {
   this.get_gone = function() {
     new Sketch().draw(self.overlay);
   }
-  this.wind.bind('resize', this.set_width);
-  this.set_width();
-  new Sketch().draw(this.overlay, {opacity :  0.7});
+  
+  if (full_screen) {
+    $(window).bind('resize', this.set_width);
+    this.set_width();
+  }
+  
+  return this.overlay;
 }
 
 function Popin(current_popin_view) {

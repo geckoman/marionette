@@ -147,7 +147,7 @@ function Underdevelop_img(element, domain) {
   var self = this;
   this.root = element.find('img');
   for (var i = 0; i < this.root.length; i++) {
-    if (this.root.eq(i).attr('src').match(/^\/system\//i) && window.location.port != "") {
+    if ((window.location.port != "" || window.location.hostname.match(/\.loc/)) && !this.root.eq(i).hasClass('loc')) {
       this.root.eq(i).attr('src', domain + this.root.eq(i).attr('src'))
     }
     if (!Is_image(this.root.eq(i).attr('src'))) {
@@ -192,6 +192,7 @@ function Underdevelop_img(element, domain) {
 function Manipulator(element) {
   this.root = element;
   this.sketcher = new Sketch();
+  this.skch = this.sketcher.draw;
   this.start_up = function() {
     
   }
