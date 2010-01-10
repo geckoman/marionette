@@ -286,7 +286,7 @@ function Sketch() {
 function Overlay(element, full_screen) {
   var self = this;
   this.jax_space = element;
-  this.jax_space.append('<div class="overlay"></div>')
+  this.jax_space.append('<div class="overlay"><a href="close"> close </a></div>')
   this.overlay = this.jax_space.children(':last');
   if (this.jax_space.attr('id') == 'jax_container') {
     this.jax_space = this.jax_space.siblings('#container');
@@ -299,12 +299,15 @@ function Overlay(element, full_screen) {
   
   this.get_gone = function() {
     new Sketch().draw(self.overlay);
+    return false;
   }
   
   if (full_screen) {
     $(window).bind('resize', this.set_width);
     this.set_width();
   }
+  
+  this.overlay.children().andSelf().bind('click', this.get_gone)
   
   return this.overlay;
 }
