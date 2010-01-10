@@ -203,3 +203,48 @@ jQuery.extend( jQuery.easing,
  * OF THE POSSIBILITY OF SUCH DAMAGE. 
  *
  */
+
+/*******************************************************************************************/	
+// jquery.event.wheel.js - rev 1 
+// Copyright (c) 2008, Three Dub Media (http://threedubmedia.com)
+// Liscensed under the MIT License (MIT-LICENSE.txt)
+// http://www.opensource.org/licenses/mit-license.php
+// Created: 2008-07-01 | Updated: 2008-07-14
+/*******************************************************************************************/
+
+// special event config
+jQuery.event.special.wheel = {
+  setup: function(){
+    jQuery.event.add( this, wheelEvents, wheelHandler, {} );
+  },
+  teardown: function(){
+    jQuery.event.remove( this, wheelEvents, wheelHandler );
+  }
+};
+
+// events to bind ( browser sniffed... )
+var wheelEvents = !jQuery.browser.mozilla ? "mousewheel" : // IE, opera, safari
+"DOMMouseScroll"+( jQuery.browser.version<"1.9" ? " mousemove" : "" ); // firefox
+
+// shared event handler
+function wheelHandler( event ){ 
+  switch ( event.type ){
+    case "mousemove": // FF2 has incorrect event positions
+      return jQuery.extend( event.data, { // store the correct properties
+        clientX: event.clientX, clientY: event.clientY,
+        pageX: event.pageX, pageY: event.pageY
+        });     
+    case "DOMMouseScroll": // firefox
+      jQuery.extend( event, event.data ); // fix event properties in FF2
+      event.delta = -event.detail/3; // normalize delta
+      break;
+    case "mousewheel": // IE, opera, safari
+      event.delta = event.wheelDelta/120; // normalize delta
+      if ( jQuery.browser.opera ) event.delta *= -1; // normalize delta
+      break;
+    }
+  event.type = "wheel"; // hijack the event 
+  return jQuery.event.handle.call( this, event, event.delta );
+};
+
+/*******************************************************************************************/
