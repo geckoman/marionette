@@ -262,7 +262,8 @@ function Sketch() {
         duration: animation_durration * 1000, 
         easing: animation_ease,
         queue: false,
-        complete: callback
+        complete: callback,
+        overflow : null
       });
     }
     
@@ -306,8 +307,6 @@ function Overlay(element, full_screen) {
     $(window).bind('resize', this.set_width);
     this.set_width();
   }
-  
-  this.overlay.children().andSelf().bind('click', this.get_gone)
   
   return this.overlay;
 }
