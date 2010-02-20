@@ -77,9 +77,7 @@ function Controler(element){
   }
   
   this.start_up = function() {
-    if (self.live_site) {
-      new Underdevelop_img(self.container, self.live_site);
-    }
+    new Underdevelop_img(self.container, self.live_site);
     if (self.linker_force) {
       new Linker(self.container, self.linker_force).start_up();
     }
@@ -143,14 +141,16 @@ function Linker(element, linker_force) {
   *  @event cLone{event type}: function: discirption of what the event does, and when or why it is called
   */
 /* --------------------------------------------------------- */
+
+
 function Underdevelop_img(element, domain) {
   var self = this;
   this.root = element.find('img');
   for (var i = 0; i < this.root.length; i++) {
-    if (this.root.eq(i).attr('src').match(/^\/system\//i) && window.location.port != "") {
+    if ((window.location.port != "" || window.location.hostname.match(/\.loc/)) && !this.root.eq(i).hasClass('loc')) {
       this.root.eq(i).attr('src', domain + this.root.eq(i).attr('src'))
     }
-    if (!Is_image(this.root.eq(i).attr('src'))) {
+    if (!Is_image(this.root.eq(i).attr('src')) || this.root.eq(i).hasClass('media')) {
       var temp_width = this.root[i].getAttribute('width');
       var temp_height = this.root[i].getAttribute('height');
       if ($.browser.msie) {
@@ -165,6 +165,9 @@ function Underdevelop_img(element, domain) {
             temp_width = Number(ie_width);
           }
         }
+      }
+      if (this.root.eq(i).attr('src').match('youtube')) {
+        this.root.eq(i).attr('src', '/marion/flash/player.swf?file=' + this.root.eq(i).attr('src'))
       }
       this.root.eq(i).addClass('flashed').media({
         width : temp_width,
@@ -192,6 +195,7 @@ function Underdevelop_img(element, domain) {
 function Manipulator(element) {
   this.root = element;
   this.sketcher = new Sketch();
+  this.skch = this.sketcher.draw;
   this.start_up = function() {
     
   }
