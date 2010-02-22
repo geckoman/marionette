@@ -222,6 +222,8 @@ function External_link(element) {
     window.open($(e.currentTarget).attr('href'), '_blank');
   }
   this.linkers.bind('click', this.blank_window);
+
+  return this;
 }
 /* ------------------------- Sketch ----------------------------
 /	** Sketch
