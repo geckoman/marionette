@@ -213,7 +213,7 @@ Number_to_currency.run_tests = function() {
 */
 function External_link(element) {
   var self = this;
-  this.linkers = element;
+  this.linkers = ( element ? element : this.root );
   
   this.blank_window = function(e) {
     if (e.shiftKey || e.altKey || e.ctrlKey || e.metaKey) {
