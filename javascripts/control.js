@@ -78,6 +78,9 @@ function Controler(element){
   
   this.start_up = function() {
     new Underdevelop_img(self.container, self.live_site);
+    if (self.analytics) {
+      new Google_analytics(self.analytics).start_up();
+    }
     if (self.linker_force) {
       new Linker(self.container, self.linker_force).start_up();
     }
@@ -178,6 +181,27 @@ function Underdevelop_img(element, domain) {
           "allowscriptaccess" : "samedomain"
         }
       });
+    }
+  }
+  return this;
+}
+function Google_analytics(account) {
+  var self = this;
+  this.account_id = account;
+  
+  this.start_up = function() {
+    var protocol_ssl = (('https:' == document.location.protocol) ? 'https://ssl.' : 'http://www.');
+    $.getScript(protocol_ssl + 'google-analytics.com/ga.js', self.start_anaylizer);
+  }
+  
+  this.start_anaylizer = function() {
+    try{
+      Page_Tracker = _gat._getTracker(self.account_id); // GLOBAL DECLORATION
+      Page_Tracker._trackPageview();
+      Page_Tracker._setDomainName("none");
+      Page_Tracker._setAllowLinker(true);
+    } catch(err) {
+      console.log(err);
     }
   }
   return this;
