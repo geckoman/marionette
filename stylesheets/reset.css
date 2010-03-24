@@ -3,7 +3,7 @@ body, html {
   padding: 0px;
   background-color: transparent;
   text-align: left;
-  height: 100%;
+  float: left;
   width: 100%;
 }
 body {
